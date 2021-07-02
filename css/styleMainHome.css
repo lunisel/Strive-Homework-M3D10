@@ -1,0 +1,106 @@
+body{
+    background-color: #141414;
+    min-height: 100vh;
+    font-family: "Open Sans", sans-serif;
+}
+h1{
+    color: white;
+    margin-top: 7px;
+    display: inline-block;
+}
+
+.section-title {
+    color: white;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+
+}
+button{
+    color: white !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    size: 25px 54px;
+    
+
+}
+.brightness img:hover {
+    opacity: .7;
+}
+.card{
+    border-radius: 0px;
+    margin-right: 1px;
+    padding: 2px;
+    background-color: #0f171e;
+}
+
+.iconAdjust{
+    color: rgb(136, 135, 135);
+    margin-top: 10px;
+}
+
+.iconAdjust:last-child{
+    margin-left: 2rem;
+}
+
+.marginAdjust{
+    margin-left: 20px;
+}
+
+.row-cards{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.btn-genre{
+    margin-left: 2rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+
+}
+
+.btn-genre > button {
+    background-color: transparent;
+    border-radius: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.genre {
+    display: flex;
+    align-items: center;
+}
+
+
+@media (max-width: 768px) { 
+    .card{
+        margin-bottom: 1rem !important;
+    }
+
+    .row-cards{
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+    }
+    .section-title {
+        margin-left: 1rem;
+    }
+
+}   
+
+
+@media (max-width: 447px) {
+    .btn-genre {
+        margin: 0px;
+    }
+
+    .genre{
+        display: inline-block;
+    }
+
+}
+   
+
+
+   
