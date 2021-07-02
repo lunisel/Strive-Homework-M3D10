@@ -3,6 +3,34 @@ body{
     min-height: 100vh;
     font-family: "Open Sans", sans-serif;
 }
+
+.carousel-control-next,
+.carousel-control-prev {
+  width: 1rem;
+}
+
+.btn {
+  color: white;
+}
+
+.btn:hover {
+  color: rgb(219, 219, 219);
+}
+
+.btn-black {
+  background-color: #000;
+}
+
+@media (min-width: 576px) {
+  .header-icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
+
 h1{
     color: white;
     margin-top: 7px;
@@ -11,7 +39,7 @@ h1{
 
 .section-title {
     color: white;
-    margin-left: 2rem;
+    margin-left: 1rem;
     font-size: 1.5rem;
     margin-bottom: 1rem;
 
