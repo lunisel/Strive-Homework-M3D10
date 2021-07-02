@@ -135,7 +135,7 @@ const handleSubmit = async () => {
     let category = document.getElementById("category")
     let imageUrl = document.getElementById("imageUrl")
 
-    const myProduct = {
+    const myMovie = {
         name: name.value,
         description: description.value,
         category: category.value,
@@ -145,7 +145,7 @@ const handleSubmit = async () => {
     try {
         const response = await fetch(url, {
             method : "POST",
-            body: JSON.stringify(myProduct),
+            body: JSON.stringify(myMovie),
             headers: {
                 "Content-Type" : "application/json",
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjlkNmIzNTgxNzAwMTVjMjI3NDEiLCJpYXQiOjE2MjUwNTc3NTAsImV4cCI6MTYyNjI2NzM1MH0.OXxI2bYNf3jJ6nk1OiFnfaesutgZhhaRz8WEGEfw_mg",
@@ -153,8 +153,8 @@ const handleSubmit = async () => {
         })
 
         if(response.ok) {
-            const respProduct = await response.json()
-            alert("Movie added successfully ! ID:" + respProduct._id)
+            const respMovie = await response.json()
+            alert("Movie added successfully ! ID:" + respMovie._id)
             name.value = ""
             description.value = ""
             category.value = ""

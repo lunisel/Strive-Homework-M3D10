@@ -6,9 +6,9 @@ const getMovies = async (url) => {
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjlkNmIzNTgxNzAwMTVjMjI3NDEiLCJpYXQiOjE2MjUwNTc3NTAsImV4cCI6MTYyNjI2NzM1MH0.OXxI2bYNf3jJ6nk1OiFnfaesutgZhhaRz8WEGEfw_mg"
         }
         })
-    const movies = await response.json()
-    console.log(movies)
-    return movies
+    const categories = await response.json()
+    console.log(categories)
+    return categories
 }
 
 const displayCategory = (categories) => {
@@ -16,43 +16,33 @@ const displayCategory = (categories) => {
     categories.forEach((category) => {
         let div = document.createElement("div")
         div.innerHTML = `<h2 id="row-title" class="section-title mt-3">${category}</h2>
-    
-        <div id="carouselExampleControls" class="carousel slide px-3" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item">
-              <div class="row mx-n1">
-
-              </div>
-            </div>  
-      
-      
-            <div class="carousel-item">
-              <div class="row mx-n1">
-      
-              </div>
-            </div>
-      
-            <div class="carousel-item active">
-              <div class="row mx-n1">
-      
-              </div>
-            </div>
-
-          </div>
-      
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+        <div id="carousel${category}">
+          ${displayMovies(category)}
         </div>`
 
         container.appendChild(div)
     })
 } 
+
+const displayMovies = async (category) => {
+    const response = await fetch(url + category, {
+        headers: {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjlkNmIzNTgxNzAwMTVjMjI3NDEiLCJpYXQiOjE2MjUwNTc3NTAsImV4cCI6MTYyNjI2NzM1MH0.OXxI2bYNf3jJ6nk1OiFnfaesutgZhhaRz8WEGEfw_mg"
+        }
+        })
+    const movies = await response.json()
+    let carousel = document.getElementById(`carousel${category}`)
+    let row = document.createElement("div")
+    row.classList.add("row", "mx-n1")
+    movies.forEach((movie) => {
+        let col = document.createElement("div")
+        col.classList.add("col-12", "col-sm-6", "col-md-4", "col-lg-2", "px-1")
+        col.innerHTML = `<img src="${movie.imageUrl}" class="img-fluid w-100">`
+        row.appendChild(col)
+    })
+
+    carousel.appendChild(row)
+}
 
 window.onload = async () => {
     try {
