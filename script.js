@@ -14,7 +14,8 @@ const getMovies = async (url) => {
 const displayCategory = (categories) => {
     let container = document.getElementById("carousel-container")
     categories.forEach((category) => {
-        container.innerHTML = `<h2 id="row-title" class="section-title mt-3">${category}</h2>
+        let div = document.createElement("div")
+        div.innerHTML = `<h2 id="row-title" class="section-title mt-3">${category}</h2>
     
         <div id="carouselExampleControls" class="carousel slide px-3" data-ride="carousel">
           <div class="carousel-inner">
@@ -48,6 +49,8 @@ const displayCategory = (categories) => {
             <span class="sr-only">Next</span>
           </a>
         </div>`
+
+        container.appendChild(div)
     })
 } 
 
