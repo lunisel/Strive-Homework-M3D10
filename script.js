@@ -11,15 +11,15 @@ const getMovies = async (url) => {
     return categories
 }
 
-const displayCategory = (categories) => {
+const displayCategory = async (categories) => {
     let container = document.getElementById("carousel-container")
     categories.forEach((category) => {
         let div = document.createElement("div")
         div.innerHTML = `<h2 id="row-title" class="section-title mt-3">${category}</h2>
-        <div id="carousel${category}">
-          ${displayMovies(category)}
+        <div id="carousel${category}" class="mx-2">
         </div>`
-
+        displayMovies(category)
+        
         container.appendChild(div)
     })
 } 
@@ -37,11 +37,15 @@ const displayMovies = async (category) => {
     movies.forEach((movie) => {
         let col = document.createElement("div")
         col.classList.add("col-12", "col-sm-6", "col-md-4", "col-lg-2", "px-1")
-        col.innerHTML = `<img src="${movie.imageUrl}" class="img-fluid w-100">`
+        col.innerHTML = `<img src="${movie.imageUrl}" class="img-fluid w-100" onclick="imgClick(${movie._id})">`
         row.appendChild(col)
     })
-
     carousel.appendChild(row)
+}
+
+
+const imgClick = function(id) {
+    console.log(id)
 }
 
 window.onload = async () => {
@@ -51,6 +55,5 @@ window.onload = async () => {
     }catch (err) {
         console.log(err)
     }
-    
 }
 
